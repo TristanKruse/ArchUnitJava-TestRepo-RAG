@@ -1,0 +1,15 @@
+@startuml
+component api
+component application
+component domain
+component infrastructure
+component bootstrap
+
+api --> application
+application --> domain
+infrastructure --> domain
+bootstrap --> api
+bootstrap --> application
+bootstrap --> infrastructure
+@enduml
+

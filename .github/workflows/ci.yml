@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Java 25 on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Check out the fixture
+        uses: actions/checkout@v7
+        with:
+          path: ArchUnitJava-TestRepo-RAG
+
+      - name: Check out ArchUnitJava
+        uses: actions/checkout@v7
+        with:
+          repository: TristanKruse/ArchUnitJava
+          path: ArchUnitJava
+          ssh-key: ${{ secrets.ARCHUNIT_JAVA_REPOSITORY_DEPLOY_KEY }}
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+
+      - name: Install the library candidate
+        shell: bash
+        run: ./ArchUnitJava/mvnw --batch-mode --no-transfer-progress -Prelease-candidate -DskipTests install
+
+      - name: Verify the external consumer
+        shell: bash
+        run: ./ArchUnitJava-TestRepo-RAG/mvnw --batch-mode --no-transfer-progress verify
+
