@@ -32,7 +32,6 @@ jobs:
         with:
           repository: TristanKruse/ArchUnitJava
           path: ArchUnitJava
-          ssh-key: ${{ secrets.ARCHUNIT_JAVA_REPOSITORY_DEPLOY_KEY }}
 
       - name: Set up Java
         uses: actions/setup-java@v5
@@ -48,4 +47,3 @@ jobs:
       - name: Verify the external consumer
         shell: bash
         run: ./ArchUnitJava-TestRepo-RAG/mvnw --batch-mode --no-transfer-progress verify
-
