@@ -31,7 +31,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>dev.archunitjava</groupId>
+      <groupId>io.github.tristankruse</groupId>
       <artifactId>archunitjava</artifactId>
       <version>${archunitjava.version}</version>
       <scope>test</scope>
@@ -82,4 +82,3 @@
     </plugins>
   </build>
 </project>
-
