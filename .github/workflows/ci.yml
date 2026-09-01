@@ -27,12 +27,6 @@ jobs:
         with:
           path: ArchUnitJava-TestRepo-RAG
 
-      - name: Check out ArchUnitJava
-        uses: actions/checkout@v7
-        with:
-          repository: TristanKruse/ArchUnitJava
-          path: ArchUnitJava
-
       - name: Set up Java
         uses: actions/setup-java@v5
         with:
@@ -40,12 +34,7 @@ jobs:
           java-version: '25'
           cache: maven
 
-      - name: Install the library candidate
-        shell: bash
-        working-directory: ArchUnitJava
-        run: ./mvnw --batch-mode --no-transfer-progress -Prelease-candidate -DskipTests install
-
-      - name: Verify the external consumer
+      - name: Resolve the public release and verify the external consumer
         shell: bash
         working-directory: ArchUnitJava-TestRepo-RAG
         run: ./mvnw --batch-mode --no-transfer-progress verify

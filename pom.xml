@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>25</maven.compiler.release>
-    <archunitjava.version>0.1.0-SNAPSHOT</archunitjava.version>
+    <archunitjava.version>0.1.0</archunitjava.version>
     <junit.version>6.0.3</junit.version>
   </properties>
 

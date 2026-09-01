@@ -2,6 +2,7 @@
 
 [![Java 25](https://img.shields.io/badge/Java-25-E76F00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/25/)
 [![ArchUnitJava](https://img.shields.io/badge/checked%20by-ArchUnitJava-5B45D6)](https://github.com/TristanKruse/ArchUnitJava)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.tristankruse/archunitjava.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.tristankruse/archunitjava/0.1.0)
 
 An independent Maven consumer that proves ArchUnitJava can analyze a realistic compiled Java
 application from outside the library repository.
@@ -41,15 +42,11 @@ The intended architecture is also captured in [`architecture.puml`](architecture
 
 ## Run locally
 
-ArchUnitJava is currently an unpublished development candidate. First install it from the sibling
-library checkout:
+ArchUnitJava `0.1.0` is resolved directly from Maven Central:
 
 ```shell
-git clone https://github.com/TristanKruse/ArchUnitJava.git
 git clone https://github.com/TristanKruse/ArchUnitJava-TestRepo-RAG.git
-cd ArchUnitJava
-./mvnw -Prelease-candidate -DskipTests install
-cd ../ArchUnitJava-TestRepo-RAG
+cd ArchUnitJava-TestRepo-RAG
 ./mvnw verify
 ```
 
