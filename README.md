@@ -3,6 +3,7 @@
 [![Java 25](https://img.shields.io/badge/Java-25-E76F00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/25/)
 [![ArchUnitJava](https://img.shields.io/badge/checked%20by-ArchUnitJava-5B45D6)](https://github.com/TristanKruse/ArchUnitJava)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.tristankruse/archunitjava.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.tristankruse/archunitjava/0.1.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An independent Maven consumer that proves ArchUnitJava can analyze a realistic compiled Java
 application from outside the library repository.
@@ -74,4 +75,4 @@ compiled application bytecode, public APIs, and independently versioned configur
 The fixture is compiled normally by Maven. ArchUnitJava then reads the resulting class files as
 data; it does not load or initialize the target application classes during architecture analysis.
 
-Licensed under the [Apache License 2.0](LICENSE).
+Licensed under the [MIT License](LICENSE).
